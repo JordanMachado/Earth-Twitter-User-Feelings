@@ -1,0 +1,53 @@
+body
+{
+	overflow: hidden;
+	font-family: helvetica;
+}
+#containerMessage
+{
+	position:absolute;
+	margin: 10px;
+	overflow: auto;
+	background-color:rgba(189, 195, 199,.3);
+	border-radius: 4px;
+	height:400px;
+	width:25%;
+}
+.message
+{
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width:335px;
+	color: white;
+}
+ul{
+	position: absolute;
+	margin: 10px;
+	left : 360px;
+}
+li{
+	display:block;
+	margin-top: 10px;
+	list-style-type:none;
+}
+.happy
+{
+	color: #2ecc71;
+}
+.sad
+{
+	color: #c0392b;
+}
+.cool
+{
+	color:rgb(52, 152, 219)
+}
+.work
+{
+color: #f1c40f;
+}
+.love
+{
+	color: #FFCCFF;
+}
