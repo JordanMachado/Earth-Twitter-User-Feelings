@@ -3,34 +3,52 @@ body
 	overflow: hidden;
 	font-family: helvetica;
 }
+#content
+{
+	position: absolute;
+	width: 30%;
+	height: 400px;
+}
+
+/* Container Messages */
 #containerMessage
 {
-	position:absolute;
-	margin: 10px;
+	position:relative;
+	float: left;
+	margin: 2%;
 	overflow: auto;
 	background-color:rgba(189, 195, 199,.3);
 	border-radius: 4px;
-	height:400px;
-	width:25%;
+	height:98%;
+	width:70%;
 }
 .message
 {
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
-	width:335px;
+	position: relative;
+	width: 80%;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
 	color: white;
 }
-ul{
-	position: absolute;
-	margin: 10px;
-	left : 360px;
+
+/* Container Keywords */
+ul
+{
+	position: relative;
+	float: left;
+	width:15%;
+	margin:2%;
+	
 }
-li{
+li
+{
 	display:block;
 	margin-top: 10px;
 	list-style-type:none;
 }
+
+/* Keywords Color Class */
 .happy
 {
 	color: #2ecc71;
