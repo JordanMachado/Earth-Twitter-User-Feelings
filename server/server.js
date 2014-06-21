@@ -1,13 +1,19 @@
 'use strict';
 
-/* Creation des instance des modules Socket.io et Ntwitter */
+/* Creation des instances des modules Socket.io et Ntwitter */
 var Twitter = require('ntwitter');
 var io = require('socket.io').listen(9003);
-/* Requete auprès de l'api */
+
+// Request twitter track
 var request;
-/* tableau des keywords*/
+
+// Array Keywords
 var keywords = ['cool','love','happy','work','sad'];
-/* Connection à l'api twitter */
+
+/* Connection API twitter
+ * To create an application twitter you have to register at https://dev.twitter.com/
+ * And they will give you your consumerKey/secret and access token 
+*/
 var twitterClient = new Twitter(
 {
     consumer_key: "2QaajODxbrgMqNTY7A7A1w",
@@ -16,27 +22,24 @@ var twitterClient = new Twitter(
     access_token_secret: "jjXzv4hBAtWTnvbnCGnZ0MYHrcjM4ZcOWdv3aAF5p49c1"
 });
 
-/* Connection d'un client sur le serveur*/
+// On client connection 
 io.sockets.on('connection', function  (socket) 
 {
-        /* Envoi de la requête auprès de l'api twitter en stream
-        ** Stream permet d'écouter en continu l'api et d'envoyer des données recherchées
-        */
+        // Event whish tracking in real time the keywords 
         request = twitterClient.stream('statuses/filter', {'track': keywords}, function(stream) 
         {
-          /* Evénement appelé lorsque l'on reçoi des données de la requête */
+          // Event called when data is sended
           stream.on('data', function (data) 
           {
-
-            /* Si les coordonnées de geolocalisation ne sont pas null envoie des données */
+            // if geolocalization is defined
             if(data.geo != null)
             {
-              /* parcours du tableau de keywords */
+              // for each keywords
               for (var i = 0; i<keywords.length; i ++)
               {
 
                  var keywordsInText = data.text.indexOf(keywords[i]) > 0; 
-                  /* Si le keyword est présent dans le texte  envoi des donnée et du keyword */
+                 // if the keyword is in the text send data and the keyword
                   if(keywordsInText)
                     socket.emit('tweet', data,keywords[i]);
               }
@@ -47,7 +50,7 @@ io.sockets.on('connection', function  (socket)
         });   
 });
 
-/* Déconnection client sur le serveur */
+/* On client deconnection */
 io.sockets.on('disconnect', function  (socket) 
 {
   socket.disconnect();
