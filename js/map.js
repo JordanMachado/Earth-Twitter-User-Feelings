@@ -55,7 +55,7 @@ function init ()
         ({
             map: THREE.ImageUtils.loadTexture('images/2_no_clouds_8k.jpg'),
             bumpMap: THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
-            specularMap: THREE.ImageUtils.loadTexture('images/earthspeck1k.jpg'),
+            specularMap: THREE.ImageUtils.loadTexture('images/earthspec1k.jpg'),
             specular: new THREE.Color('grey'),
             bumpScale:   0.005
         })
