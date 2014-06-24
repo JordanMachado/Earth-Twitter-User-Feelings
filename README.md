@@ -5,6 +5,8 @@ For each tweets found we can get a lot of information sush as their localization
 <img src="http://machadojordan.fr/screenshots/Earth-Twitter-User-Feelings-complete.png" />
 <h4>Links</h4>
 <a href="http://machadojordan.fr">My portfolio<a/>
+
 <a href="http://threejs.org/">Three.js</a>
+
 <a href="http://nodejs.org/">Node.js</a>
 <a href="https://dev.twitter.com/docs/streaming-apis/parameters#track">Twitter: method track</a>
