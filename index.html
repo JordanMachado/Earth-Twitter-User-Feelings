@@ -4,13 +4,12 @@
 	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
 	<!-- Libs -->
-	<script src="js/three.min.js" type="text/javascript"></script>
-	<script src="js/OrbitControls.js" type="text/javascript"></script>
+	<script src="js/lib/three.min.js" type="text/javascript"></script>
+	<script src="js/lib/OrbitControls.js" type="text/javascript"></script>
+	<!-- Socket -->
+	<script src="http://127.0.0.1:9003/socket.io/socket.io.js"></script>
 </head>
-<!-- Open socket -->
-<script src="http://127.0.0.1:9003/socket.io/socket.io.js"></script>
 <body>
 	<section id="content">
 		<div id="containerMessage" ></div>
@@ -22,7 +21,7 @@
 			<li class="cool">Cool</li>
 		</ul>
 	</section>
+	<!-- Map -->
+	<script src="js/map.js" type="text/javascript"></script>
 </body>
-<!-- Map -->
-<script src="js/map.js" type="text/javascript"></script>
 </html>

@@ -2,6 +2,16 @@
  * Created by Jordan on 07/03/14.
  */
 
+ // Global Standard Variable
+var scene,camera,renderer;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+var EarthRotation = 0.003;
+var controls;
+var earth,light,sky;
+var windowResize;
+var THREEx ;
+
 // Socket
 var socket = io.connect('http://127.0.0.1:9003');
 /* Traitement de l'événement client: tweet (donné d'un tweet reçu par le tracking) */
@@ -20,18 +30,6 @@ socket.on('tweet', function (data,type)
     // Creating point on earth
     CreatePointInEarth(earth,0.50,data.geo.coordinates[0],data.geo.coordinates[1],type)
 });
-
-// Global Standard Variable
-var scene,camera,renderer;
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
-var EarthRotation = 0.003;
-var controls;
-var earth,light,sky;
-var windowResize;
-var THREEx ;
-
-
 
 // Init
 function init () 
@@ -115,26 +113,27 @@ function CreatePointInEarth(object,rayon,latitude,longitude,type)
             colorPoint = 0xffffff;
         break
     }
-    // 
+    // Calcul of angles phi and theta with the longitude and latitude   
     var phi = Math.PI/2 - (latitude * Math.PI / 180);
     var theta = 2 * Math.PI - (longitude * Math.PI / 180);
         
-    /* creation d'un point rouge */
+    // Point
     var point = new THREE.Mesh
     (
         new THREE.SphereGeometry(0.004,32,32),
         new THREE.MeshBasicMaterial( { color: colorPoint, transparent: true }  )
     );
 
-    /* positionnement du point d'après l'équation d'un point sur une sphère */
+    // Set position of the point 
     point.position.x = rayon * Math.sin(phi) * Math.cos(theta);
     point.position.y = rayon * Math.cos(phi);
     point.position.z = rayon * Math.sin(phi) * Math.sin(theta); 
 
-    /* ajout du point sur la sphère */
+    // add point
     object.add(point);
 };
 
+// resize Earth
 function resizeEarth()
 {
     /** @namespace */
@@ -165,8 +164,9 @@ function resizeEarth()
     }
 };
 
-    /* appel des fonctions */
-    resizeEarth();
-    init();
-    render();
+// Main method
+resizeEarth();
+init();
+render();
+
 
