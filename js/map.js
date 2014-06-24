@@ -7,7 +7,7 @@ var socket = io.connect('http://127.0.0.1:9003');
 /* Traitement de l'événement client: tweet (donné d'un tweet reçu par le tracking) */
 socket.on('tweet', function (data,type) 
 {
-    //console.log("pays:"+data.place.country+" ville:"+data.place.name);
+    console.log("pays:"+data.place.country+" ville:"+data.place.name);
     /* Ajout du texte du tweet dans le container de message */
     var containerMessage = document.getElementById("containerMessage");
     containerMessage.innerHTML = containerMessage.innerHTML + '<p class="message '+type+'" >' + data.text + '</p>';
@@ -89,12 +89,11 @@ function render()
     requestAnimationFrame(render);
     renderer.render(scene,camera);
 };
-/* Fonction permettant de placer un point sur la map */
+// Function for placing point on earth with the longitude an latitude
 function CreatePointInEarth(object,rayon,latitude,longitude,type)
 {
-    /* coueleur du point */
     var colorPoint;
-    /* Swith permettant d'attribuer une couleur à un type de point */
+    // switch type of point
     switch(type)
     {
         case 'love':
@@ -112,8 +111,11 @@ function CreatePointInEarth(object,rayon,latitude,longitude,type)
         case 'sad':
             colorPoint = 0xc0392b;
         break;
+        default:
+            colorPoint = 0xffffff;
+        break
     }
-    /* Calcule des angles phi et theta converti en radian */
+    // 
     var phi = Math.PI/2 - (latitude * Math.PI / 180);
     var theta = 2 * Math.PI - (longitude * Math.PI / 180);
         
