@@ -16,10 +16,10 @@ var keywords = ['cool','love','happy','work','sad'];
 */
 var twitterClient = new Twitter(
 {
-    consumer_key: "2QaajODxbrgMqNTY7A7A1w",
-    consumer_secret: "usDzR0W9Pg9eRVT7OXtq5IIm7U1VVxuLRTCNSKzUvRE",
-    access_token_key: "829075742-n1VPHxhQ2w4BKo8RxPWXWGSgbg4u2hACut2hpn4e",
-    access_token_secret: "jjXzv4hBAtWTnvbnCGnZ0MYHrcjM4ZcOWdv3aAF5p49c1"
+    consumer_key: "XXXXXXX",
+    consumer_secret: "XXXXXXX",
+    access_token_key: "XXXXXXX",
+    access_token_secret: "XXXXXXX"
 });
 
 // On client connection 
